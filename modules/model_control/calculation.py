@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from scipy.optimize import fsolve
 
+
 class SSR_model:
     def __init__(self, df_layers, df_data, df_other, df_chaussee, df_site):
         self.df_layers = df_layers
@@ -309,7 +310,7 @@ class SSR_model:
                 (self.kf_low * self.Rf + 0.5 * dz0_resid)
             return f
 
-        dt = fsolve(func, np.array(0.1))[0]
+        dt = fsolve(func, np.array(0.1), full_output=True)[0]
         return dt
 
     def adjust_current_hour_count(self):
@@ -463,29 +464,36 @@ class SSR_model:
         fig = plt.figure(figsize=(14, 6), dpi=100)
         ax1 = fig.add_axes([0.1, 0.1, 0.8, 0.8])
         ax1.set_title(self.figure_label_1, size=14)
-        plot1 = ax1.plot(self.array_df['day'],
-                         self.array_df['z'],
-                         label='Frost penetration (Python)',
-                         lw=2, color='olivedrab')
+        plot1 = ax1.plot(
+            self.array_df['day'],
+            self.array_df['z'],
+            label='Frost penetration (Python)',
+            lw=2, color='olivedrab',
+        )
         if np.nansum(np.array(self.chaussee_file_chau_z_list)) != 0:
-            plot5 = ax1.plot(self.chaussee_file_day_list,
-                             self.chaussee_file_chau_z_list,
-                             label='Chaussee results',
-                             linestyle='None',
-                             marker='x',
-                             ms=3,
-                             mew=1,
-                             color='royalblue')
+            plot5 = ax1.plot(
+                self.chaussee_file_day_list,
+                self.chaussee_file_chau_z_list,
+                label='Chaussee results',
+                linestyle='None',
+                marker='x',
+                ms=3,
+                mew=1,
+                color='royalblue',
+            )
         else:
             plot5 = None
-        plot2 = ax1.plot(self.site_file_day_list,
-                         self.site_file_site_z_list,
-                         label='Site measurement',
-                         linestyle='None',
-                         marker='+',
-                         ms=5,
-                         mew=1,
-                         color='darkorange')
+
+        plot2 = ax1.plot(
+            self.site_file_day_list,
+            self.site_file_site_z_list,
+            label='Site measurement',
+            linestyle='None',
+            marker='+',
+            ms=5,
+            mew=1,
+            color='darkorange',
+        )
         #plot3 = ax1.plot(self.df_cpp_result_day,
         #                 self.df_cpp_result_z,
         #                 label="Frost penetration (C++)",

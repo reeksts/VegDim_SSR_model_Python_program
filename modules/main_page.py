@@ -106,9 +106,10 @@ class MainPage(ttk.Frame):
         self.top_label_frame = ttk.Frame(self.mat_properties_title_frame, style='DarkFrame.TFrame')
         self.top_label_frame.pack(side='top', fill='x')
 
-        self.main_title = ttk.Label(self.top_label_frame,
-                                    text='Material layer selection',
-                                    style='ExtraLargeLabel.TLabel')
+        self.main_title = ttk.Label(
+            self.top_label_frame,
+            text='Material layer selection',
+            style='ExtraLargeLabel.TLabel')
         self.main_title.pack(side='left', padx=(10, 0), pady=(5, 5))
 
         # Initial entry lines
@@ -118,12 +119,13 @@ class MainPage(ttk.Frame):
             self.entry_container.append(entry_line)
 
         # Adding material database button
-        self.material_db_button = ttk.Button(self.mat_properties_main_frame,
-                                             text='Open material database',
-                                             width=35,
-                                             style='Standard.TButton',
-                                             takefocus=False,
-                                             command=self.open_material_database)
+        self.material_db_button = ttk.Button(
+            self.mat_properties_main_frame,
+            text='Open material database',
+            width=35,
+            style='Standard.TButton',
+            takefocus=False,
+            command=self.open_material_database)
         self.material_db_button.grid(row=5, column=0, columnspan=5, pady=(10, 0))
 
         # Adding labels to top row (material selection and properties)
@@ -157,9 +159,10 @@ class MainPage(ttk.Frame):
         self.label_lf.grid(row=0, column=16, padx=(7, 0), pady=(3, 0))
 
     def load_full_file(self):
-        file_name = filedialog.askopenfilename(initialdir=r'C:\Users\karlisr\OneDrive - NTNU\2_PostDoc_NTNU\01_SSR_project_Model_development\08_SSR_model_python_app_ACTIVE\data',
-                                               title='Select a file',
-                                               filetypes=(('Excel files', '.xlsx'), ('All files', '*.*')))
+        file_name = filedialog.askopenfilename(
+            initialdir=r'C:\Users\karlisr\OneDrive - NTNU\2_PostDoc_NTNU\01_SSR_project_Model_development\08_SSR_model_python_app_ACTIVE\data',
+            title='Select a file',
+            filetypes=(('Excel files', '.xlsx'), ('All files', '*.*')))
 
         # Layers sheet
         self.layers_df = pd.read_excel(file_name, sheet_name='layers')
@@ -527,34 +530,44 @@ class EntryLine:
 
         # Adding material selection widgets
         self.var_line_number = tk.StringVar(value=self.row)
-        self.row_line_number = ttk.Label(self.parent,
-                                         width=2,
-                                         textvariable=self.var_line_number,
-                                         style='Standard.TLabel')
-        self.plus_button = ttk.Button(self.parent,
-                                      image=self.plus_sign_image,
-                                      takefocus=False,
-                                      style='ImageButton.TButton',
-                                      command=lambda: self.controller.add_new_line(self.row))
-        self.minus_button = ttk.Button(self.parent,
-                                       image=self.minus_sign_image,
-                                       takefocus=False,
-                                       style='ImageButton.TButton',
-                                       command=lambda: self.controller.remove_line(self.row))
-        self.entry1 = ttk.Combobox(self.parent,
-                                   textvariable=self.var_mat_selection,
-                                   values=material_list,
-                                   state='readonly',
-                                   style='Standard.TCombobox')
+        self.row_line_number = ttk.Label(
+            self.parent,
+            width=2,
+            textvariable=self.var_line_number,
+            style='Standard.TLabel',
+        )
+        self.plus_button = ttk.Button(
+            self.parent,
+            image=self.plus_sign_image,
+            takefocus=False,
+            style='ImageButton.TButton',
+            command=lambda: self.controller.add_new_line(self.row),
+        )
+        self.minus_button = ttk.Button(
+            self.parent,
+            image=self.minus_sign_image,
+            takefocus=False,
+            style='ImageButton.TButton',
+            command=lambda: self.controller.remove_line(self.row),
+        )
+        self.entry1 = ttk.Combobox(
+            self.parent,
+            textvariable=self.var_mat_selection,
+            values=material_list,
+            state='readonly',
+            style='Standard.TCombobox',
+        )
         self.entry1.bind('<<ComboboxSelected>>',
                          lambda event, x=self.row: self.controller.combobox_selection(event, self.row))
-        self.entry2 = ttk.Spinbox(self.parent,
-                                  from_=0.01,
-                                  to=10,
-                                  format="%.2f",
-                                  increment=0.01,
-                                  width=4,
-                                  style='Standard.TSpinbox')
+        self.entry2 = ttk.Spinbox(
+            self.parent,
+            from_=0.01,
+            to=10,
+            format="%.2f",
+            increment=0.01,
+            width=4,
+            style='Standard.TSpinbox',
+        )
 
         # Variables for material entries
         self.var_rhod = tk.StringVar()
@@ -573,91 +586,121 @@ class EntryLine:
         self.checked.set(0)
 
         # Entry fields for material properties
-        self.entry_rhod = ttk.Entry(self.parent,
-                                    width=6,
-                                    textvariable=self.var_rhod,
-                                    state='disabled',
-                                    style='Standard.TEntry')
-        self.entry_rhos = ttk.Entry(self.parent,
-                                    width=6,
-                                    textvariable=self.var_rhos,
-                                    state='disabled',
-                                    style='Standard.TEntry')
-        self.entry_n = ttk.Entry(self.parent,
-                                 width=6,
-                                 textvariable=self.var_n,
-                                 state='disabled',
-                                 style='Standard.TEntry')
-        self.entry_w_grav = ttk.Entry(self.parent,
-                                      width=6,
-                                      textvariable=self.var_w_grav,
-                                      state='disabled',
-                                      style='Standard.TEntry')
-        self.entry_sp_val = ttk.Entry(self.parent,
-                                      width=6,
-                                      textvariable=self.var_sp_val,
-                                      state='disabled',
-                                      style='Standard.TEntry')
+        self.entry_rhod = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_rhod,
+            state='disabled',
+            style='Standard.TEntry',
+        )
+        self.entry_rhos = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_rhos,
+            state='disabled',
+            style='Standard.TEntry',
+        )
+        self.entry_n = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_n,
+            state='disabled',
+            style='Standard.TEntry',
+        )
+        self.entry_w_grav = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_w_grav,
+            state='disabled',
+            style='Standard.TEntry',
+        )
+        self.entry_sp_val = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_sp_val,
+            state='disabled',
+            style='Standard.TEntry',
+        )
         self.entry_sp_opt_label = ttk.Frame(self.parent, style='Standard.TFrame')
-        self.entry_sp_opt_button = ttk.Button(self.entry_sp_opt_label,
-                                              image=self.opt_img_resized,
-                                              state='disabled',
-                                              takefocus=False,
-                                              style='ImageButton.TButton',
-                                              command=lambda: self.controller.segregation_potential_model(self.row))
-        self.entry_a_val = ttk.Entry(self.parent,
-                                     width=6,
-                                     textvariable=self.var_a_val,
-                                     state='disabled',
-                                     style='Standard.TEntry')
-        self.entry_ku = ttk.Entry(self.parent,
-                                  width=6,
-                                  textvariable=self.var_ku,
-                                  state='disabled',
-                                  style='Standard.TEntry')
-        self.entry_kf = ttk.Entry(self.parent,
-                                  width=6,
-                                  textvariable=self.var_kf,
-                                  state='disabled',
-                                  style='Standard.TEntry')
+        self.entry_sp_opt_button = ttk.Button(
+            self.entry_sp_opt_label,
+            image=self.opt_img_resized,
+            state='disabled',
+            takefocus=False,
+            style='ImageButton.TButton',
+            command=lambda: self.controller.segregation_potential_model(self.row),
+        )
+        self.entry_a_val = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_a_val,
+            state='disabled',
+            style='Standard.TEntry',
+        )
+        self.entry_ku = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_ku,
+            state='disabled',
+            style='Standard.TEntry',
+        )
+        self.entry_kf = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_kf,
+            state='disabled',
+            style='Standard.TEntry',
+        )
         self.entry_th_opt_label = ttk.Frame(self.parent, style='Standard.TFrame')
-        self.entry_th_opt_button = ttk.Button(self.entry_th_opt_label,
-                                              image=self.opt_img_resized,
-                                              state='disabled',
-                                              takefocus=False,
-                                              style='ImageButton.TButton',
-                                              command=lambda: self.controller.kf_thermal_conductivty_model(self.row))
-        self.entry_sr = ttk.Entry(self.parent,
-                                  width=6,
-                                  textvariable=self.var_sr,
-                                  state='disabled',
-                                  style='DisabledEntry.TEntry')
-        self.entry_lf = ttk.Entry(self.parent,
-                                  width=6,
-                                  textvariable=self.var_lf,
-                                  state='disabled',
-                                  style='DisabledEntry.TEntry')
-        self.checkbox = ttk.Checkbutton(self.parent,
-                                        variable=self.checked,
-                                        style='Standard.TCheckbutton',
-                                        command=lambda: self.controller.disable_entry_line(self.row))
+        self.entry_th_opt_button = ttk.Button(
+            self.entry_th_opt_label,
+            image=self.opt_img_resized,
+            state='disabled',
+            takefocus=False,
+            style='ImageButton.TButton',
+            command=lambda: self.controller.kf_thermal_conductivty_model(self.row),
+        )
+        self.entry_sr = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_sr,
+            state='disabled',
+            style='DisabledEntry.TEntry',
+        )
+        self.entry_lf = ttk.Entry(
+            self.parent,
+            width=6,
+            textvariable=self.var_lf,
+            state='disabled',
+            style='DisabledEntry.TEntry',
+        )
+        self.checkbox = ttk.Checkbutton(
+            self.parent,
+            variable=self.checked,
+            style='Standard.TCheckbutton',
+            command=lambda: self.controller.disable_entry_line(self.row))
 
         # Entry bindings
         self.entry_rhod.bind(
             '<KeyRelease>',
-            lambda event, entry='rhod', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row))
+            lambda event, entry='rhod', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row)
+        )
         self.entry_rhos.bind(
             '<KeyRelease>',
-            lambda event, entry='rhos', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row))
+            lambda event, entry='rhos', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row)
+        )
         self.entry_n.bind(
             '<KeyRelease>',
-            lambda event, entry='n', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row))
+            lambda event, entry='n', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row)
+        )
         self.entry_w_grav.bind(
             '<KeyRelease>',
-            lambda event, entry='w_grav', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row))
+            lambda event, entry='w_grav', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row)
+        )
         self.entry_sr.bind(
             '<KeyRelease>',
-            lambda event, entry='sr', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row))
+            lambda event, entry='sr', row=self.row: self.controller.calculate_entry_changes(event, entry, self.row)
+        )
 
     def pack_objects(self):
         """Packs all widgets for a given line"""

@@ -3,6 +3,7 @@ TOOLBAR_BORDER = '#4c4c4c'
 TOOLBAR_BUTTON_PRESSED_BACKGROUND = '#b2b2b2'
 TOOLBAR_BUTTON_ACTIVE_BACKGROUND = '#808080'
 
+# Frame colors
 STANDARD_FRAME_BACKGROUND = '#404040'
 STANDARD_LABEL_BACKGROUND = '#404040'
 STANDARD_BUTTON_BACKGROUND = '#404040'
@@ -88,6 +89,7 @@ WARNING_ENTRY_FOREGROUND = 'black'
 WARNING_ENTRY_FIELDBACKGROUND = '#cc0000'
 WARNING_ENTRY_LIGHTCOLOR = '#595959'
 WARNING_ENTRY_BORDERCOLOR = '#999999'
+
 
 class StyleConfiguration:
     def __init__(self, style):
@@ -370,7 +372,7 @@ class StyleConfiguration:
         #print(style.element_options('TRadiobutton.focus'))
         #print(style.element_options('TRadiobutton.label'))
 
-        print(style.layout('TEntry'))
-        print(style.element_options('TEntry.field'))
-        print(style.element_options('TEntry.padding'))
-        print(style.element_options('TEntry.textarea'))
+        print(style.layout('TButton'))
+        print(style.element_options('TButton.padding'))
+        #print(style.element_options('TEntry.padding'))
+        #print(style.element_options('TEntry.focus'))

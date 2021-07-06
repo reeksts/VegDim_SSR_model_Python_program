@@ -129,122 +129,160 @@ class ThermalConductivityModel(tk.Toplevel):
         self.frozen_label.grid(row=2, column=3, padx=(5, 0), pady=(3, 0))
 
         self.type_selection = tk.StringVar()
-        self.radiobutton_1 = ttk.Radiobutton(self.top_frame_inner_right,
-                                             value='type1',
-                                             variable=self.type_selection,
-                                             takefocus=False,
-                                             style='Standard.TRadiobutton')
+        self.radiobutton_1 = ttk.Radiobutton(
+            self.top_frame_inner_right,
+            value='type1',
+            variable=self.type_selection,
+            takefocus=False,
+            style='Standard.TRadiobutton'
+        )
         self.radiobutton_1.grid(row=3, column=0, sticky='w', padx=(10, 0), pady=(3, 0))
-        self.radiobutton_2 = ttk.Radiobutton(self.top_frame_inner_right,
-                                             value='type2',
-                                             variable=self.type_selection,
-                                             takefocus=False,
-                                             style='Standard.TRadiobutton')
+        self.radiobutton_2 = ttk.Radiobutton(
+            self.top_frame_inner_right,
+            value='type2',
+            variable=self.type_selection,
+            takefocus=False,
+            style='Standard.TRadiobutton'
+        )
         self.radiobutton_2.grid(row=4, column=0, sticky='w', padx=(10, 0), pady=(3, 0))
-        self.radiobutton_3 = ttk.Radiobutton(self.top_frame_inner_right,
-                                             value='type3',
-                                             variable=self.type_selection,
-                                             takefocus=False,
-                                             style='Standard.TRadiobutton')
+        self.radiobutton_3 = ttk.Radiobutton(
+            self.top_frame_inner_right,
+            value='type3',
+            variable=self.type_selection,
+            takefocus=False,
+            style='Standard.TRadiobutton'
+        )
         self.radiobutton_3.grid(row=5, column=0, sticky='w', padx=(10, 0), pady=(3, 0))
-        self.radiobutton_4 = ttk.Radiobutton(self.top_frame_inner_right,
-                                             value='type4',
-                                             variable=self.type_selection,
-                                             takefocus=False,
-                                             style='Standard.TRadiobutton')
+        self.radiobutton_4 = ttk.Radiobutton(
+            self.top_frame_inner_right,
+            value='type4',
+            variable=self.type_selection,
+            takefocus=False,
+            style='Standard.TRadiobutton'
+        )
         self.radiobutton_4.grid(row=6, column=0, sticky='w', padx=(10, 0), pady=(3, 0))
 
-        self.type_label_1 = ttk.Label(self.top_frame_inner_right,
-                                      text='gravel and coarse sands:',
-                                      style='Standard.TLabel')
+        self.type_label_1 = ttk.Label(
+            self.top_frame_inner_right,
+            text='gravel and coarse sands:',
+            style='Standard.TLabel'
+        )
         self.type_label_1.grid(row=3, column=1, sticky='w', padx=(5, 0), pady=(3, 0))
-        self.type_label_2 = ttk.Label(self.top_frame_inner_right,
-                                      text='medium and fine sands:',
-                                      style='Standard.TLabel')
+        self.type_label_2 = ttk.Label(
+            self.top_frame_inner_right,
+            text='medium and fine sands:',
+            style='Standard.TLabel'
+        )
         self.type_label_2.grid(row=4, column=1, sticky='w', padx=(5, 0), pady=(3, 0))
-        self.type_label_3 = ttk.Label(self.top_frame_inner_right,
-                                      text='silty and clayey soils:',
-                                      style='Standard.TLabel')
+        self.type_label_3 = ttk.Label(
+            self.top_frame_inner_right,
+            text='silty and clayey soils:',
+            style='Standard.TLabel'
+        )
         self.type_label_3.grid(row=5, column=1, sticky='w', padx=(5, 0), pady=(3, 0))
-        self.type_label_4 = ttk.Label(self.top_frame_inner_right,
-                                      text='organic fibrous soils (peat):',
-                                      style='Standard.TLabel')
+        self.type_label_4 = ttk.Label(
+            self.top_frame_inner_right,
+            text='organic fibrous soils (peat):',
+            style='Standard.TLabel'
+        )
         self.type_label_4.grid(row=6, column=1, sticky='w', padx=(5, 0), pady=(3, 0))
 
         self.var_unfrozen_1 = tk.StringVar(value='4.60')
         self.var_unfrozen_2 = tk.StringVar(value='3.55')
         self.var_unfrozen_3 = tk.StringVar(value='1.90')
         self.var_unfrozen_4 = tk.StringVar(value='0.60')
-        self.unfrozen_val_1 = ttk.Label(self.top_frame_inner_right,
-                                        textvariable=self.var_unfrozen_1,
-                                        style='Standard.TLabel')
+        self.unfrozen_val_1 = ttk.Label(
+            self.top_frame_inner_right,
+            textvariable=self.var_unfrozen_1,
+            style='Standard.TLabel'
+        )
         self.unfrozen_val_1.grid(row=3, column=2, padx=(0, 0), pady=(3, 0))
-        self.unfrozen_val_2 = ttk.Label(self.top_frame_inner_right,
-                                        textvariable=self.var_unfrozen_2,
-                                        style='Standard.TLabel')
+        self.unfrozen_val_2 = ttk.Label(
+            self.top_frame_inner_right,
+            textvariable=self.var_unfrozen_2,
+            style='Standard.TLabel'
+        )
         self.unfrozen_val_2.grid(row=4, column=2, padx=(0, 0), pady=(3, 0))
-        self.unfrozen_val_3 = ttk.Label(self.top_frame_inner_right,
-                                        textvariable=self.var_unfrozen_3,
-                                        style='Standard.TLabel')
+        self.unfrozen_val_3 = ttk.Label(
+            self.top_frame_inner_right,
+            textvariable=self.var_unfrozen_3,
+            style='Standard.TLabel'
+        )
         self.unfrozen_val_3.grid(row=5, column=2, padx=(0, 0), pady=(3, 0))
-        self.unfrozen_val_4 = ttk.Label(self.top_frame_inner_right,
+        self.unfrozen_val_4 = ttk.Label(
+            self.top_frame_inner_right,
                                         textvariable=self.var_unfrozen_4,
-                                        style='Standard.TLabel')
+                                        style='Standard.TLabel'
+        )
         self.unfrozen_val_4.grid(row=6, column=2, padx=(0, 0), pady=(3, 0))
 
         self.var_frozen_1 = tk.StringVar(value='1.70')
         self.var_frozen_2 = tk.StringVar(value='0.95')
         self.var_frozen_3 = tk.StringVar(value='0.85')
         self.var_frozen_4 = tk.StringVar(value='0.25')
-        self.frozen_val_1 = ttk.Label(self.top_frame_inner_right,
-                                      textvariable=self.var_frozen_1,
-                                      style='Standard.TLabel')
+        self.frozen_val_1 = ttk.Label(
+            self.top_frame_inner_right,
+            textvariable=self.var_frozen_1,
+            style='Standard.TLabel')
         self.frozen_val_1.grid(row=3, column=3, padx=(0, 0), pady=(3, 0))
-        self.frozen_val_2 = ttk.Label(self.top_frame_inner_right,
-                                      textvariable=self.var_frozen_2,
-                                      style='Standard.TLabel')
+        self.frozen_val_2 = ttk.Label(
+            self.top_frame_inner_right,
+            textvariable=self.var_frozen_2,
+            style='Standard.TLabel')
         self.frozen_val_2.grid(row=4, column=3, padx=(0, 0),pady=(3, 0))
-        self.frozen_val_3 = ttk.Label(self.top_frame_inner_right,
-                                      textvariable=self.var_frozen_3,
-                                      style='Standard.TLabel')
+        self.frozen_val_3 = ttk.Label(
+            self.top_frame_inner_right,
+            textvariable=self.var_frozen_3,
+            style='Standard.TLabel')
         self.frozen_val_3.grid(row=5, column=3, padx=(0, 0), pady=(3, 0))
-        self.frozen_val_4 = ttk.Label(self.top_frame_inner_right,
-                                      textvariable=self.var_frozen_4,
-                                      style='Standard.TLabel')
+        self.frozen_val_4 = ttk.Label(
+            self.top_frame_inner_right,
+            textvariable=self.var_frozen_4,
+            style='Standard.TLabel'
+        )
         self.frozen_val_4.grid(row=6, column=3, padx=(0, 0), pady=(3, 0))
 
         # Adding center frame widgets for mineral or rock selection calculation
         self.center_frame_top_selection_frame = ttk.Frame(self.center_frame, style='Standard.TFrame')
         self.center_frame_top_selection_frame.pack(side='top', fill='x')
 
-        self.particle_th_con_label = ttk.Label(self.center_frame_top_selection_frame,
-                                              text='Particle thermal conductivity',
-                                              style='LargeLabel.TLabel')
+        self.particle_th_con_label = ttk.Label(
+            self.center_frame_top_selection_frame,
+            text='Particle thermal conductivity',
+            style='LargeLabel.TLabel'
+        )
         self.particle_th_con_label.grid(row=0, column=0, columnspan=4, sticky='w', padx=(10, 0), pady=(15, 0))
 
         self.calculation_selection = tk.StringVar()
-        self.rock_selection_radiobutton = ttk.Radiobutton(self.center_frame_top_selection_frame,
-                                                          value='rock',
-                                                          variable=self.calculation_selection,
-                                                          style='Standard.TRadiobutton',
-                                                          takefocus=False,
-                                                          command=self.switch_frames)
+        self.rock_selection_radiobutton = ttk.Radiobutton(
+            self.center_frame_top_selection_frame,
+            value='rock',
+            variable=self.calculation_selection,
+            style='Standard.TRadiobutton',
+            takefocus=False,
+            command=self.switch_frames
+        )
         self.rock_selection_radiobutton.grid(row=1, column=0, padx=(10, 0), pady=(5, 5))
-        self.rock_selection_label = ttk.Label(self.center_frame_top_selection_frame,
-                                              text='by rock type',
-                                              style='Standard.TLabel')
+        self.rock_selection_label = ttk.Label(
+            self.center_frame_top_selection_frame,
+            text='by rock type',
+            style='Standard.TLabel'
+        )
         self.rock_selection_label.grid(row=1, column=1, padx=(3, 0), pady=(5, 5))
 
-        self.mineral_selection_radiobutton = ttk.Radiobutton(self.center_frame_top_selection_frame,
-                                                             value='mineral',
-                                                             variable=self.calculation_selection,
-                                                             style='Standard.TRadiobutton',
-                                                             takefocus=False,
-                                                             command=self.switch_frames)
+        self.mineral_selection_radiobutton = ttk.Radiobutton(
+            self.center_frame_top_selection_frame,
+            value='mineral',
+            variable=self.calculation_selection,
+            style='Standard.TRadiobutton',
+            takefocus=False,
+            command=self.switch_frames
+        )
         self.mineral_selection_radiobutton.grid(row=1, column=2, padx=(10, 0), pady=(5, 5))
-        self.mineral_selection_label = ttk.Label(self.center_frame_top_selection_frame,
-                                                 text='by mineral',
-                                                 style='Standard.TLabel')
+        self.mineral_selection_label = ttk.Label(
+            self.center_frame_top_selection_frame,
+            text='by mineral',
+            style='Standard.TLabel')
         self.mineral_selection_label.grid(row=1, column=3, padx=(3, 0), pady=(5, 5))
 
         self.switch_frame_container = ttk.Frame(self.center_frame, style='Standard.TFrame')
@@ -416,18 +454,21 @@ class SelectByRock(ttk.Frame):
         self.th_label_entry = ttk.Entry(self, textvariable=self.var_th, style='Standard.TEntry')
         self.th_label_entry.grid(row=1, column=2, padx=(10, 0), pady=(5, 0))
 
-        self.select_from_list = ttk.Button(self,
-                                           text='Select from list',
-                                           width=15,
-                                           takefocus=False,
-                                           style='Standard.TButton',
-                                           command=self.select_rock)
-        self.select_from_list.grid(row=2,
-                                   column=0,
-                                   columnspan=2,
-                                   sticky='w',
-                                   padx=(10, 0),
-                                   pady=(10, 10))
+        self.select_from_list = ttk.Button(
+            self,
+            text='Select from list',
+            width=15,
+            takefocus=False,
+            style='Standard.TButton',
+            command=self.select_rock
+        )
+        self.select_from_list.grid(
+            row=2,
+            column=0,
+            columnspan=2,
+            sticky='w',
+            padx=(10, 0),
+            pady=(10, 10))
 
     def select_rock(self):
         select_rock = RockThermalConductivitySelection(self)
@@ -464,18 +505,20 @@ class SelectByMineral(ttk.Frame):
 
         # Adding select minerals button
         self.var_row_number = tk.IntVar(value=len(self.entry_line_container)+1)
-        self.select_from_list = ttk.Button(self,
-                                           text='Select from list',
-                                           width=15,
-                                           takefocus=False,
-                                           style='Standard.TButton',
-                                           command=self.select_minerals)
-        self.select_from_list.grid(row=self.var_row_number.get(),
-                                   column=0,
-                                   columnspan=5,
-                                   sticky='w',
-                                   padx=(10, 0),
-                                   pady=(10, 10))
+        self.select_from_list = ttk.Button(
+            self,
+            text='Select from list',
+            width=15,
+            takefocus=False,
+            style='Standard.TButton',
+            command=self.select_minerals)
+        self.select_from_list.grid(
+            row=self.var_row_number.get(),
+            column=0,
+            columnspan=5,
+            sticky='w',
+            padx=(10, 0),
+            pady=(10, 10))
 
         # Adding sum percentage label
         self.var_sum_percentage = tk.StringVar(value='sum: 0.0')
@@ -488,12 +531,13 @@ class SelectByMineral(ttk.Frame):
         added or removed."""
         self.var_row_number.set(len(self.entry_line_container) + 1)
         self.select_from_list.grid_forget()
-        self.select_from_list.grid(row=self.var_row_number.get(),
-                                   column=0,
-                                   columnspan=5,
-                                   sticky='w',
-                                   padx=(10, 0),
-                                   pady=(10, 10))
+        self.select_from_list.grid(
+            row=self.var_row_number.get(),
+            column=0,
+            columnspan=5,
+            sticky='w',
+            padx=(10, 0),
+            pady=(10, 10))
         self.sum_percentage_label.grid_forget()
         self.sum_percentage_label.grid(row=self.var_row_number.get(), column=6, padx=(0, 0), pady=(10, 10))
 
