@@ -1,4 +1,5 @@
-import tkinter as tk
+i
+mport tkinter as tk
 from tkinter import ttk
 import tkinter.font as font
 from modules.menu_bar import MenuBar
